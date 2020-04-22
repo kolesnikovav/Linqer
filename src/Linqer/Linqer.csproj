@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageId>Linqer</PackageId>
+    <Version>1.0.1</Version>
+    <Authors>Aleksandr Kolesnikov</Authors>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <AssemblyName>Linqer</AssemblyName>
+    <PackageTags>net-core;linq;linqer</PackageTags>
+    <PackageProjectUrl>https://github.com/kolesnikovav/Linqer</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/kolesnikovav/Linqer.git</RepositoryUrl>
+    <Description>Simplify your Linq expression</Description>     
+  </PropertyGroup>
+
+</Project>
