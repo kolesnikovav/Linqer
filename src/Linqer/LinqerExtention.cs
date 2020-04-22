@@ -30,7 +30,6 @@ namespace Linqer
         /// <returns>The comparison result</returns>        
         public static bool GetCustomPredicate<T>(T val,string name, object valCompare, PredicateType pType)
         {
-
             ParameterExpression parameterModelFind = Expression.Parameter(typeof(T), "a");
             MemberExpression propertyModelFind = Expression.Property(parameterModelFind, name);
             ConstantExpression cExpr = Expression.Constant(valCompare);
@@ -38,6 +37,39 @@ namespace Linqer
             LambdaExpression la = Expression.Lambda(ex,new ParameterExpression[] {parameterModelFind});
             return (bool)la.Compile().DynamicInvoke(val);
         }
+        /// <summary>
+        /// Generate custom lambda expression
+        /// </summary>
+        /// <param name="name">Name of field/property of source value</param>
+        /// <param name="valCompare">The value to compare</param>
+        /// <param name="pType">Comparison type</param>
+        /// <returns>The comparison lambda expression</returns>         
+        public static Func<T,bool> GetCustomLambda<T>(string name, object valCompare, PredicateType pType)
+        {
+            ParameterExpression parameterModelFind = Expression.Parameter(typeof(T), "a");
+            MemberExpression propertyModelFind = Expression.Property(parameterModelFind, name);
+            ConstantExpression cExpr = Expression.Constant(valCompare);
+            Expression ex = GetExpressionByType(propertyModelFind, cExpr, pType);
+            LambdaExpression la = Expression.Lambda(ex,new ParameterExpression[] {parameterModelFind});
+            return (Func<T,bool>)la.Compile();
+        }
+        /// <summary>
+        /// Generate custom lambda expression
+        /// </summary>
+        /// <param name="instanceOfT">Not used parameter.Should be instance of T</param>
+        /// <param name="name">Name of field/property of source value</param>
+        /// <param name="valCompare">The value to compare</param>
+        /// <param name="pType">Comparison type</param>
+        /// <returns>The comparison lambda expression</returns>        
+        public static Func<T,bool> GetCustomLambda<T>(T instanceOfT, string name, object valCompare, PredicateType pType)
+        {
+            ParameterExpression parameterModelFind = Expression.Parameter(typeof(T), "a");
+            MemberExpression propertyModelFind = Expression.Property(parameterModelFind, name);
+            ConstantExpression cExpr = Expression.Constant(valCompare);
+            Expression ex = GetExpressionByType(propertyModelFind, cExpr, pType);
+            LambdaExpression la = Expression.Lambda(ex,new ParameterExpression[] {parameterModelFind});
+            return (Func<T,bool>)la.Compile();
+        }                 
         /// <summary>
         /// Evaluate equality for member of source value with anover value.
         /// </summary>
