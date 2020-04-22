@@ -7,7 +7,7 @@
     <Authors>Aleksandr Kolesnikov</Authors>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <AssemblyName>Linqer</AssemblyName>
-    <PackageTags>net-core;linq;linqer</PackageTags>
+    <PackageTags>net-core;linq;linqer;lambda</PackageTags>
     <PackageProjectUrl>https://github.com/kolesnikovav/Linqer</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryType>git</RepositoryType>

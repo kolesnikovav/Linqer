@@ -1,5 +1,5 @@
 # What does Linqer do?
-This library can simplify your Linq expression, by accessing member field/property of some value by name of it in Linq expression.
+This library can simplify your Lambda expression, by accessing member field/property of some value by name of it in Lambda expression.
 Lets take a look on this simple example.
 
 ```csharp
@@ -32,7 +32,7 @@ In this example, as you can see, the Linq expression
 ```csharp
 v => LinqerExtention.EqualPredicate(v ,"FirstName", nameToFind)
 ```
-is equivalent to
+is equivalent to this lambda expression
 ```csharp
 v => v.FirstName == nameToFind
 ```
